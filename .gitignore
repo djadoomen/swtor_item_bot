@@ -1,0 +1,8 @@
+# ignore the icons directory
+icn/
+
+# ignore ssl directory
+.well-known/
+
+# ignore .env file
+bot/.env 
