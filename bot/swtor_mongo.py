@@ -1,10 +1,11 @@
 import pymongo,re,json
+from os import getenv
 from dotenv import load_dotenv
 
 load_dotenv()
-_URI = os.getenv('MONGO_URI')
-_DB = os.getenv('MONGO_DB')
-_COLL = os.getenv('MONGO_COLLECTION')
+_URI = getenv('MONGO_URI')
+_DB = getenv('MONGO_DB')
+_COLL = getenv('MONGO_COLLECTION')
 
 mConnection = pymongo.MongoClient(_URI)
 mDatabase = mConnection[_DB] # Specify the Database
@@ -14,8 +15,8 @@ def search_db(search_subject):
     sss = search_subject.split()
     q_base = '{"$and":['
     for s in sss:
-        s = s.replace("(","\(")
-        s = s.replace(")","\)")
+        s = s.replace("(",".")
+        s = s.replace(")",".")
         q_base += '{"Name": {"$regex":"'+ s +'","$options":"i"}}'
         q_base += ','
     q_base = q_base.rstrip(",")

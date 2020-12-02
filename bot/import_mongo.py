@@ -1,10 +1,11 @@
 import json,pymongo,re
+from os import getenv
 from dotenv import load_dotenv
 
 load_dotenv()
-_URI = os.getenv('MONGO_URI')
-_DB = os.getenv('MONGO_DB')
-_COLL = os.getenv('MONGO_COLLECTION')
+_URI = getenv('MONGO_URI')
+_DB = getenv('MONGO_DB')
+_COLL = getenv('MONGO_COLLECTION')
 
 mConnection = pymongo.MongoClient(_URI)
 mDatabase = mConnection[_DB] # Specify the Database

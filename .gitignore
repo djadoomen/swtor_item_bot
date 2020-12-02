@@ -6,3 +6,5 @@ icn/
 
 # ignore .env file
 bot/.env 
+
+__pychache__
